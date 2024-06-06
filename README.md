@@ -35,9 +35,6 @@ cd react-vite-template
 2. Start the development server:
 npm run dev / yarn dev
 
-🌐 Follow Us
-Stay connected and follow us on social media:
-
 ## 🌐 Follow Us
 
 Stay connected and follow us on social media:
