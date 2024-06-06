@@ -3,7 +3,7 @@ import TodoComponent from "../Todo";
 
 const TodosComponent = ({ todos }) => {
   return (
-    <div>
+    <div style={styles.container}>
       {todos.map((todo) => {
         return <TodoComponent key={todo.id} todo={todo} />;
       })}
@@ -11,4 +11,10 @@ const TodosComponent = ({ todos }) => {
   );
 };
 
+const styles = {
+  container: {
+    width: "40%",
+    margin: "0 auto",
+  },
+};
 export default TodosComponent;

@@ -21,15 +21,23 @@ function App() {
   ];
   return (
     <div>
-      <header>
+      <header style={styles.title}>
         <h1>React Todo List</h1>
       </header>
-      <section>
+      <section style={styles.container}>
         <h2>Ini Form Inputnya</h2>
         <TodosComponent todos={todos} />
       </section>
     </div>
   );
 }
-
+const styles = {
+  container: {
+    textAlign: "center",
+    padding: "12px",
+  },
+  title: {
+    fontSize: "36px",
+  },
+};
 export default App;
