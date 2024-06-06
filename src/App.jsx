@@ -30,6 +30,11 @@ function App() {
     });
     setTodos(updateTodoItem);
   };
+
+  const removeEventCompleteHandler = (e) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== e);
+    setTodos(updatedTodos);
+  };
   return (
     <div>
       <header style={styles.title}>
@@ -39,6 +44,7 @@ function App() {
         <TodosComponent
           todos={todos}
           ToggleEventCompleteHandler={toggleEventComplete}
+          removeEventCompleteHandler={removeEventCompleteHandler}
         />
       </section>
     </div>

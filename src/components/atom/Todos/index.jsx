@@ -1,7 +1,11 @@
 import React from "react";
 import TodoComponent from "../Todo";
 
-const TodosComponent = ({ todos, ToggleEventCompleteHandler }) => {
+const TodosComponent = ({
+  todos,
+  ToggleEventCompleteHandler,
+  removeEventCompleteHandler,
+}) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
@@ -10,6 +14,7 @@ const TodosComponent = ({ todos, ToggleEventCompleteHandler }) => {
             key={todo.id}
             todo={todo}
             ToggleEventCompleteHandler={ToggleEventCompleteHandler}
+            removeEventCompleteHandler={removeEventCompleteHandler}
           />
         );
       })}
@@ -19,7 +24,7 @@ const TodosComponent = ({ todos, ToggleEventCompleteHandler }) => {
 
 const styles = {
   container: {
-    width: "40%",
+    width: "50%",
     margin: "0 auto",
   },
 };
