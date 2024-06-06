@@ -1,8 +1,9 @@
+import { useState } from "react";
 import "./App.css";
-import TodosComponent from "./components/Todos";
+import TodosComponent from "./components/atom/Todos";
 
 function App() {
-  const todos = [
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: "Finish Progate React Course",
@@ -18,15 +19,27 @@ function App() {
       title: "Study React with Ninja Ken",
       completed: false,
     },
-  ];
+  ]);
+
+  const toggleEventComplete = (e) => {
+    const updateTodoItem = todos.map((todo) => {
+      if (todo.id === e) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    setTodos(updateTodoItem);
+  };
   return (
     <div>
       <header style={styles.title}>
         <h1>React Todo List</h1>
       </header>
       <section style={styles.container}>
-        <h2>Ini Form Inputnya</h2>
-        <TodosComponent todos={todos} />
+        <TodosComponent
+          todos={todos}
+          ToggleEventCompleteHandler={toggleEventComplete}
+        />
       </section>
     </div>
   );
