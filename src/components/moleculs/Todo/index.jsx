@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { TodoContext } from "../../../App";
 
 const TodoComponent = ({ todo }) => {
-  const { ToggleEventCompleteHandler, removeEventCompleteHandler } =
+  const { toggleEventComplete, removeEventCompleteHandler } =
     useContext(TodoContext);
   const todoStyleTitle = () => {
     if (todo.completed === true) {
@@ -17,7 +17,7 @@ const TodoComponent = ({ todo }) => {
       <input
         type="checkbox"
         style={style.checkbox}
-        onChange={() => ToggleEventCompleteHandler(todo.id)}
+        onChange={() => toggleEventComplete(todo.id)}
       />
       <p style={todoStyleTitle()}>{todo.title}</p>
       <button
