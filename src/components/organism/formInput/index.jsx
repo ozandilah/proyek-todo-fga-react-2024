@@ -46,10 +46,14 @@ const style = {
     fontSize: "16px",
     padding: "0 16px",
     marginRight: "32px",
+    backgroundColor: "#EFECEB",
+    border: "2px solid #ffff",
+    color: "#1f1f1f",
   },
   buttonStyle: {
     height: "72px",
     fontSize: "16px",
+    backgroundColor: "#000080",
   },
 };
 

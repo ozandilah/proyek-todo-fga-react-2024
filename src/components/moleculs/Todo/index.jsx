@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TodoContext } from "../../../App";
 
-const TodoComponent = ({
-  todo,
-  ToggleEventCompleteHandler,
-  removeEventCompleteHandler,
-}) => {
+const TodoComponent = ({ todo }) => {
+  const { ToggleEventCompleteHandler, removeEventCompleteHandler } =
+    useContext(TodoContext);
   const todoStyleTitle = () => {
     if (todo.completed === true) {
       return { textDecoration: "line-through" };
@@ -25,7 +24,7 @@ const TodoComponent = ({
         style={style.button}
         onClick={() => removeEventCompleteHandler(todo.id)}
       >
-        x
+        Delete
       </button>
     </div>
   );
@@ -45,7 +44,7 @@ const style = {
     width: "18px",
   },
   button: {
-    backgroundColor: "#BB0000",
+    backgroundColor: "#FFFF00",
     color: "#fff",
     height: "20%",
     width: "20%",

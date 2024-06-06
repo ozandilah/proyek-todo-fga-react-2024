@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import "./App.css";
 import TodosComponent from "./components/moleculs/Todos";
 import FormInputSection from "./components/organism/formInput";
+import ParticlesComponent from "./components/organism/particles";
+export const TodoContext = createContext();
 
 function App() {
   const [todos, setTodos] = useState([
@@ -54,19 +56,18 @@ function App() {
     }
   };
   return (
-    <div>
+    <TodoContext.Provider
+      value={{ toggleEventComplete, removeEventCompleteHandler }}
+    >
+      <ParticlesComponent id="particles" />
       <header style={styles.title}>
         <h1>React Todo List</h1>
       </header>
       <section style={styles.container}>
         <FormInputSection addTodo={addTodo} />
-        <TodosComponent
-          todos={todos}
-          ToggleEventCompleteHandler={toggleEventComplete}
-          removeEventCompleteHandler={removeEventCompleteHandler}
-        />
+        <TodosComponent todos={todos} />
       </section>
-    </div>
+    </TodoContext.Provider>
   );
 }
 const styles = {
