@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import TodosComponent from "./components/atom/Todos";
+import TodosComponent from "./components/moleculs/Todos";
+import FormInputSection from "./components/organism/formInput";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -35,12 +36,30 @@ function App() {
     const updatedTodos = todos.filter((todo) => todo.id !== e);
     setTodos(updatedTodos);
   };
+
+  const addTodo = async (todoTitle) => {
+    try {
+      if (todoTitle === "") {
+        return;
+      }
+      const newTodo = {
+        id: todos.length + 1,
+        title: todoTitle,
+        completed: false,
+      };
+      const updatedTodos = await todos.concat(newTodo);
+      setTodos(updatedTodos);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <header style={styles.title}>
         <h1>React Todo List</h1>
       </header>
       <section style={styles.container}>
+        <FormInputSection addTodo={addTodo} />
         <TodosComponent
           todos={todos}
           ToggleEventCompleteHandler={toggleEventComplete}
